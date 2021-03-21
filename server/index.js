@@ -19,4 +19,6 @@ mongoose.connect(
     console.log('Connect sucess!');
   }
 );
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server listen on port: ${port}`);
+});
