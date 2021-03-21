@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 
 //Import routes
 app.use('/customers', customerRoutes);
-
+app.get('/', (req, res) => {
+  res.send('Hello world');
+});
 mongoose.connect(
   'mongodb+srv://hoangngoclam:L%40m123123@cluster0.wsww8.mongodb.net/customer-storage?retryWrites=true&w=majority',
   { useNewUrlParser: true },
