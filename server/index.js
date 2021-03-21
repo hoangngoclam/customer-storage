@@ -5,6 +5,7 @@ require('dotenv/config');
 const customerRoutes = require('./routes/customerRoutes');
 const bodyParser = require('body-parser');
 
+const port = process.env.PORT || 3000;
 //Middleware
 app.use(bodyParser.json());
 
@@ -18,4 +19,4 @@ mongoose.connect(
     console.log('Connect sucess!');
   }
 );
-app.listen(3000);
+app.listen(port);
