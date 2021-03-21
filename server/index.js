@@ -11,7 +11,11 @@ app.use(bodyParser.json());
 //Import routes
 app.use('/customers', customerRoutes);
 
-mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser: true},()=>{
-  console.log("Connect sucess!")
-})
+mongoose.connect(
+  'mongodb+srv://hoangngoclam:L%40m123123@cluster0.wsww8.mongodb.net/customer-storage?retryWrites=true&w=majority',
+  { useNewUrlParser: true },
+  () => {
+    console.log('Connect sucess!');
+  }
+);
 app.listen(3000);
