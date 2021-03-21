@@ -1,14 +1,17 @@
-const {MongoClient} = require('mongodb');
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+require('dotenv/config');
+const customerRoutes = require('./routes/customerRoutes');
+const bodyParser = require('body-parser');
 
-const url = "mongodb+srv://hoangngoclam:L%40m123123@cluster0.wsww8.mongodb.net?retryWrites=true&w=majority";
-    const dbName = "customer-storage";
+//Middleware
+app.use(bodyParser.json());
 
-    MongoClient.connect(url,(error, client)=>{
-        if(error) throw error;
-        const dbo = client.db(dbName);
-        dbo.collection('customer',(error, collection)=>{
-          collection.insertOne({name:"Ngoc Lam"},(error, result)=>{
-            console.log(result.result);
-          })
-        })
-    })
+//Import routes
+app.use('/customers', customerRoutes);
+
+mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser: true},()=>{
+  console.log("Connect sucess!")
+})
+app.listen(3000);
