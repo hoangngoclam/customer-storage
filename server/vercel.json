@@ -6,6 +6,26 @@
       "src": "/customers",
       "dest": "/index.js",
       "methods": ["GET"]
+    },
+    {
+      "src": "/customers/search/:searchValue",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/customers",
+      "dest": "/index.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/customers/:customerId",
+      "dest": "/index.js",
+      "methods": ["DELETE"]
+    },
+    {
+      "src": "/customers/:customerId",
+      "dest": "/index.js",
+      "methods": ["PUT"]
     }
   ]
 }
