@@ -21,11 +21,6 @@
       "src": "/customers/:customerId",
       "dest": "/index.js",
       "methods": ["DELETE"]
-    },
-    {
-      "src": "/customers/:customerId",
-      "dest": "/index.js",
-      "methods": ["PUT"]
     }
   ]
 }

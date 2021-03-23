@@ -58,35 +58,35 @@ router.delete('/:customerId', async (req, res) => {
   }
 });
 
-router.put('/:customerId', async (req, res) => {
-  let customerId = req.params.customerId;
-  try {
-    let findOneCustomerResult = await CustomerModel.findOne({
-      _id: customerId,
-    });
-    if (!findOneCustomerResult) {
-      throw 'sdf';
-    }
-    let updateCustomerResult = await CustomerModel.updateOne(
-      { _id: customerId },
-      {
-        $set: {
-          name: req.body.name ?? findOneCustomerResult.name,
-          phone_number:
-            req.body.phone_number ?? findOneCustomerResult.phone_number,
-          address: req.body.address ?? findOneCustomerResult.address,
-          product_names:
-            req.body.product_names ?? findOneCustomerResult.product_names,
-          prices: req.body.prices ?? findOneCustomerResult.prices,
-          total_price:
-            req.body.total_price ?? findOneCustomerResult.total_price,
-        },
-      }
-    );
-    res.json(updateCustomerResult);
-  } catch (error) {
-    res.json({ message: error });
-  }
-});
+// router.put('/edit/:customerId', async (req, res) => {
+//   let customerId = req.params.customerId;
+//   try {
+//     let findOneCustomerResult = await CustomerModel.findOne({
+//       _id: customerId,
+//     });
+//     if (!findOneCustomerResult) {
+//       throw 'sdf';
+//     }
+//     let updateCustomerResult = await CustomerModel.updateOne(
+//       { _id: customerId },
+//       {
+//         $set: {
+//           name: req.body.name ?? findOneCustomerResult.name,
+//           phone_number:
+//             req.body.phone_number ?? findOneCustomerResult.phone_number,
+//           address: req.body.address ?? findOneCustomerResult.address,
+//           product_names:
+//             req.body.product_names ?? findOneCustomerResult.product_names,
+//           prices: req.body.prices ?? findOneCustomerResult.prices,
+//           total_price:
+//             req.body.total_price ?? findOneCustomerResult.total_price,
+//         },
+//       }
+//     );
+//     res.json(updateCustomerResult);
+//   } catch (error) {
+//     res.json({ message: error });
+//   }
+// });
 
 module.exports = router;

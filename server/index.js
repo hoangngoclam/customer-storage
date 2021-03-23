@@ -6,10 +6,11 @@ const customerRoutes = require('./routes/customerRoutes');
 const bodyParser = require('body-parser');
 var cors = require('cors');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 //Middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.options('*', cors());
 //Import routes
 app.use('/customers', customerRoutes);
 app.get('/', (req, res) => {
