@@ -1,6 +1,6 @@
 import axios from 'axios';
 // const rootUrl = "https://customer-s-fnyl2lck7-hoangngoclam.vercel.app/";
-const rootUrl = "http://localhost:3001"
+const rootUrl = "https://customer-s-hoangngoclam.vercel.app"
 
 class API{
     public static getAllCustomers(): Promise<[ICustomer]>{
@@ -19,7 +19,7 @@ class API{
 
     public static postAddCustomers(data: ICustomer): Promise<ICustomer>{
         return new Promise((res,rej)=>{
-            axios.post(rootUrl+"/customers",data)
+            axios.post(rootUrl+"/customers",data,{ headers: {"Access-Control-Allow-Origin": "*"} })
             .then((result: {data:ICustomer})=>{
                 if(result.data != null){
                     res(result.data)

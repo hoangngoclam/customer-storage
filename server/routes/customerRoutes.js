@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('search/:searchValue', async (req, res) => {
-  let searchValue = req.params.searchValue;
+router.get('/search', async (req, res) => {
+  let searchValue = req.query.search;
   try {
     var regex = new RegExp(searchValue, 'g');
     let searchCustomerResult = await CustomerModel.find({
@@ -48,8 +48,8 @@ router.get('search/:searchValue', async (req, res) => {
   }
 });
 
-router.delete('/:customerId', async (req, res) => {
-  let customerId = req.params.customerId;
+router.delete('/delete', async (req, res) => {
+  let customerId = req.body.id;
   try {
     let deleteCustomerResult = await CustomerModel.remove({ _id: customerId });
     res.json(deleteCustomerResult);

@@ -8,5 +8,5 @@ interface ICustomer{
     product_names: String,
     prices: String,
     total_price: String,
-    created_at: Date,
+    created_at?: Date ,
 }
