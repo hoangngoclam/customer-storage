@@ -1,6 +1,6 @@
 import axios from 'axios';
 // const rootUrl = "https://customer-s-fnyl2lck7-hoangngoclam.vercel.app/";
-const rootUrl = "https://customer-s-hoangngoclam.vercel.app"
+const rootUrl = "https://lit-depths-71241.herokuapp.com"
 
 class API{
     public static getAllCustomers(): Promise<[ICustomer]>{
