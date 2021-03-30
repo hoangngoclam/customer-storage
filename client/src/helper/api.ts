@@ -31,9 +31,9 @@ class API{
         })
     }
 
-    public static deleteCustomers(id: string): Promise<boolean>{
+    public static deleteCustomers(id: String): Promise<boolean>{
         return new Promise((res,rej)=>{
-            axios.delete(rootUrl+"/customers/"+id)
+            axios.delete(rootUrl+"/customers/delete",{data:{id:id}})
             .then((result: any)=>{
                 res(true)
             })
